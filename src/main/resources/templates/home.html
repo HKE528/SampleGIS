@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -17,10 +17,11 @@
 </head>
 <body>
 
-    <div class="map-container">
-        <div id="map" class="map"></div>
-    </div>
+    <div th:replace="fragments/header :: header"></div>
 
+    <div class="w-100" style="height: 500px;">
+        <div id="map" class="map-container"></div>
+    </div>
 
 </body>
 

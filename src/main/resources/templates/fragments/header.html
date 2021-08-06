@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="header">
+    <div class="banner-container text-white">
+        <p class="fs-2 fw-bold text-center pt-2"> Sample GIS </p>
+    </div>
+
+    <div class="border border-4">
+        <div class="btn-group">
+            <input type="radio" class="btn-check" name="selectMap" id="vworldNormal" checked>
+            <label class="btn btn-outline-secondary" for="vworldNormal">브이월드 - 일반</label>
+
+            <input type="radio" class="btn-check" name="selectMap" id="vworldSatellite">
+            <label class="btn btn-outline-secondary" for="vworldSatellite">브이월드 - 위성</label>
+
+            <input type="radio" class="btn-check" name="selectMap" id="KakaoNormal">
+            <label class="btn btn-outline-secondary" for="KakaoNormal">카카오 - 일반</label>
+
+            <input type="radio" class="btn-check" name="selectMap" id="kakaoSatellite">
+            <label class="btn btn-outline-secondary" for="kakaoSatellite">카카오 - 위성</label>
+
+            <input type="radio" class="btn-check" name="selectMap" id="naverNormal">
+            <label class="btn btn-outline-secondary" for="naverNormal">네이버 - 일반</label>
+
+            <input type="radio" class="btn-check" name="selectMap" id="naverSatellite">
+            <label class="btn btn-outline-secondary" for="naverSatellite">네이버 - 영상</label>
+        </div>
+    </div>
+</div>
+
+</html>
