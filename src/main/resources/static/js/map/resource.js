@@ -16,7 +16,7 @@ const kakaoGrid = new ol.tilegrid.TileGrid({
     resolutions: daumResolutions,
 });
 
-const KakaoNormal = new ol.source.XYZ({
+const kakaoNormal = new ol.source.XYZ({
     projection: kakaoProj,
     tileGrid: kakaoGrid,
 
@@ -61,8 +61,7 @@ const naverNormal = new ol.source.XYZ({
 });
 
 const naverSatellite = new ol.source.XYZ({
-    //    url: "https://map.pstatic.net/nrb/styles/basic/1626941278/{z}/{x}/{y}.png?mt=bg.ol.ts.lko",
-    url: "https://map.pstatic.net/nrb/styles/basic/1626941278/{z}/{x}/{y}.png?mt=bg",
+    url: "https://map.pstatic.net/nrb/styles/satellite/1626941278/{z}/{x}/{y}.png?mt=bg",
 });
 
 //const vectorSource = new ol.source.Vector({ wrapX: false });
@@ -97,7 +96,7 @@ export {
     baseMapLayer,
     vworldNormal,
     vworldSatellite,
-    KakaoNormal,
+    kakaoNormal,
     kakaoSatellite,
     naverNormal,
     naverSatellite
