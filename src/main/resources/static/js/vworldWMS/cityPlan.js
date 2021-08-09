@@ -7,17 +7,17 @@ const checkBtnTrafficFacility = document.getElementById("check-upisuq152");
 const checkBtnLoad = document.getElementById("check-upisuq151");
 const checkBtnOtherFacility = document.getElementById("check-upisuq159");
 
-const listFarmCheckBtn = [
+const listCityPlanCheckBtn = [
     checkBtnSpaceFacility,      // 공간시설
     checkBtnTrafficFacility,    // 교통시설
     checkBtnLoad,               // 도로
     checkBtnOtherFacility       // 기타기반시설
 ]
 
-const spaceFacilityLayers = createVworldImageWMS("agriculturalLayers", checkBtnSpaceFacility.value);
-const trafficFacilityLayers = createVworldImageWMS("irrigationLayers", checkBtnTrafficFacility.value);
-const loadLayers = createVworldImageWMS("unagriculturalLayers", checkBtnLoad.value);
-const otherFacilityLayers = createVworldImageWMS("reservoirLayers", checkBtnOtherFacility.value);
+const spaceFacilityLayers = createVworldImageWMS("spaceFacilityLayers", checkBtnSpaceFacility.value);
+const trafficFacilityLayers = createVworldImageWMS("trafficFacilityLayers", checkBtnTrafficFacility.value);
+const loadLayers = createVworldImageWMS("loadLayers", checkBtnLoad.value);
+const otherFacilityLayers = createVworldImageWMS("otherFacilityLayers", checkBtnOtherFacility.value);
 
 checkBtnSpaceFacility.addEventListener("change", (evt) => layerCheckEventHandler(map, evt.target, spaceFacilityLayers));
 checkBtnTrafficFacility.addEventListener("change", (evt) => layerCheckEventHandler(map, evt.target, trafficFacilityLayers));
@@ -25,5 +25,5 @@ checkBtnLoad.addEventListener("change", (evt) => layerCheckEventHandler(map, evt
 checkBtnOtherFacility.addEventListener("change", (evt) => layerCheckEventHandler(map, evt.target, otherFacilityLayers));
 
 checkBtnCityPlanAll.addEventListener("change", (evt) => {
-    allClick(evt.target, listFarmCheckBtn);
+    allClick(evt.target, listCityPlanCheckBtn);
 });
