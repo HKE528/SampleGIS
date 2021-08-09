@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="col-lg-2 col-md-3 border border-top-0 border-4 h-100 overflow-scroll" th:fragment="sideMenu">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse1" aria-expanded="false" aria-controls="item-collapse1">
+                    경계
+                </button>
+            </h2>
+            <div id="item-collapse1" class="accordion-collapse collapse" aria-labelledby="item-heading1">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-ad-all" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-ad-all">전체</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-adsido" value="lt_c_adsido" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-adsido">광역시도</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-adri" value="lt_c_adri" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-adri">리</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-adsigg" value="lt_c_adsigg" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-adsigg">시군구</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-ademd" value="lt_c_ademd" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-ademd">읍면동</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse2" aria-expanded="false" aria-controls="item-collapse2">
+                    국가지명
+                </button>
+            </h2>
+            <div id="item-collapse2" class="accordion-collapse collapse" aria-labelledby="item-heading2">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-name" value="lt_p_nsnmssitenm" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-name">국가지명</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse3" aria-expanded="false" aria-controls="item-collapse3">
+                    농업/농촌
+                </button>
+            </h2>
+            <div id="item-collapse3" class="accordion-collapse collapse" aria-labelledby="item-heading3">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-all-agrixue" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-all-agrixue">전체</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-agrixue101" value="lt_c_agrixue101" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-agrixue101">농업진흥지역도</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-rifct" value="lt_p_rifct" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-rifct">수리시설</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-agrixue102" value="lt_c_agrixue102" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-agrixue102">영농여건불리농지도</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-rirsv" value="lt_c_rirsv" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-rirsv">저수지</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse4" aria-expanded="false" aria-controls="item-collapse4">
+                    도시계획
+                </button>
+            </h2>
+            <div id="item-collapse4" class="accordion-collapse collapse" aria-labelledby="item-heading4">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-all-upisuq" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-all-upisuq">전체</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-upisuq153" value="lt_c_upisuq153" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-upisuq153">공간시설</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-upisuq152" value="lt_c_upisuq152" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-upisuq152">교통시설</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-upisuq151" value="lt_c_upisuq151" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-upisuq151">도로</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-upisuq159" value="lt_c_upisuq159" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-upisuq159">기타기반시설</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse5" aria-expanded="false" aria-controls="item-collapse5">
+                    수자원
+                </button>
+            </h2>
+            <div id="item-collapse5" class="accordion-collapse collapse" aria-labelledby="item-heading5">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-all-wkm" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-all-wkm">전체</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-wkmbbsn" value="lt_c_wkmbbsn" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-wkmbbsn">대권역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-wkmmbsn" value="lt_c_wkmmbsn" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-wkmmbsn">중권역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-wkmsbsn" value="lt_c_wkmsbsn" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-wkmsbsn">표준권역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-wkmstrm" value="lt_c_wkmstrm" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-wkmstrm">하천망</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse6" aria-expanded="false" aria-controls="item-collapse6">
+                    용도지역지구
+                </button>
+            </h2>
+            <div id="item-collapse6" class="accordion-collapse collapse" aria-labelledby="item-heading6">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-all-uq" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-all-uq">전체</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-ud801" value="lt_c_ud801" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-ud801">개발제한구역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq129" value="lt_c_uq129" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq129">개발진흥지구</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq112" value="lt_c_uq112" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq112">관리지역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq141" value="lt_c_uq141" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq141">국토계획구역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq113" value="lt_c_uq113" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq113">농림지역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq111" value="lt_c_uq111" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq111">도시지역</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq126" value="lt_c_uq126" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq126">보호지구</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uq130" value="lt_c_uq130" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uq130">특정용도제한지구</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-uj401" value="lt_c_uj401" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-uj401">온천지구</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="item-heading7">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-collapse7" aria-expanded="false" aria-controls="item-collapse7">
+                    토지
+                </button>
+            </h2>
+            <div id="item-collapse7" class="accordion-collapse collapse" aria-labelledby="item-heading7">
+                <div class="btn-group-vertical mb-2" style="display: block;">
+                    <input type="checkbox" class="btn-check" id="check-all-gr" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-all-gr">전체</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-lhzone" value="lt_c_lhzone" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-lhzone">사업지구경계도</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-bubun" value="lp_pa_cbnd_bubun" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-bubun">지적도1</label><br>
+
+                    <input type="checkbox" class="btn-check" id="check-bonbun" value="lp_pa_cbnd_bonbun" autocomplete="off">
+                    <label class="btn btn-outline-secondary btn-sm text-start" for="check-bonbun">지적도2</label><br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</html>
