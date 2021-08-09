@@ -25,5 +25,5 @@ checkBtnSigg.addEventListener("change", (evt) => layerCheckEventHandler(map, evt
 checkBtnEMD.addEventListener("change", (evt) => layerCheckEventHandler(map, evt.target, emdLayers));
 
 checkBtnBoundaryAll.addEventListener("change", (evt) => {
-    allClick(listBoundaryCheckBtn);
+    allClick(evt.target, listBoundaryCheckBtn);
 });

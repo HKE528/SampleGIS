@@ -25,10 +25,20 @@ function layerCheckEventHandler(map, target, layer) {
     }
 }
 
-function allClick(targetList) {
-    targetList.forEach(element => {
-        element.click();
-    });
+function allClick(target, distList) {
+    if(target.checked) {
+        distList.forEach(element => {
+            if(!element.checked){
+                element.click();
+            }
+        });
+    } else {
+        distList.forEach(element => {
+            if(element.checked){
+                element.click();
+            }
+        });
+    }
 }
 
 export {
