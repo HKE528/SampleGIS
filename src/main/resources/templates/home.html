@@ -23,14 +23,18 @@
     <div class="row g-0 w-100 main-container">
         <div th:replace="fragments/sideMenu :: sideMenu"></div>
 
-        <div class="col border-end border-bottom border-4">
-            <div id="map" class="map-container"></div>
+        <div class="col border-end border-bottom border-4 position-relative">
+            <div id="map" class="map-container position-absolute top-0 start-0"></div>
+
+            <div th:replace="map/mapToolbar :: mapToolbar"></div>
         </div>
     </div>
 
 </body>
 
 <footer>
+    <script src="/js/tooltips.js"></script>
+
     <script type="module" src="/js/map/resource.js"></script>
     <script type="module" src="/js/map/mapChanger.js"></script>
     <script type="module" src="/js/vworldWMS/vworldWMSModul.js"></script>
