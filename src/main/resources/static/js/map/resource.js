@@ -79,7 +79,11 @@ const view = new ol.View({
 const map = new ol.Map({
     target: 'map',
     layers: [baseMapLayer],
-    view: view
+    view: view,
+    controls : ol.control.defaults({
+        attribution : false,
+        zoom : false,
+    }),
 });
 
 function defineEPSG() {
