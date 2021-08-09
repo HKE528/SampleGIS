@@ -20,8 +20,12 @@
 
     <div th:replace="fragments/header :: header"></div>
 
-    <div class="w-100 main-container">
-        <div id="map" class="map-container"></div>
+    <div class="row g-0 w-100 main-container">
+        <div th:replace="fragments/sideMenu :: sideMenu"></div>
+
+        <div class="col border-end border-bottom border-4">
+            <div id="map" class="map-container"></div>
+        </div>
     </div>
 
 </body>
