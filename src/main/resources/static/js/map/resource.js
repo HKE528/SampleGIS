@@ -64,9 +64,6 @@ const naverSatellite = new ol.source.XYZ({
     url: "https://map.pstatic.net/nrb/styles/satellite/1626941278/{z}/{x}/{y}.png?mt=bg",
 });
 
-//const vectorSource = new ol.source.Vector({ wrapX: false });
-//const vectorLayer = new ol.layer.Vector({ source: vectorSource });
-
 const baseMapLayer = new ol.layer.Tile({ source: vworldNormal });
 
 const view = new ol.View({
