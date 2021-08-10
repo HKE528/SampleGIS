@@ -5,13 +5,13 @@
 
 <div class="btn-toolbar btn-toolbar-container" th:fragment="mapToolbar">
     <div class="btn-group-vertical">
-        <button class="btn btn-secondary p-1">
+        <button class="btn btn-secondary p-1" id="btnZoomIn">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                 <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
             </svg>
         </button>
 
-        <button class="btn btn-secondary p-1">
+        <button class="btn btn-secondary p-1" id="btnZoomOut">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                 <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"/>
             </svg>
@@ -40,6 +40,14 @@
                 <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
             </svg>
         </label>
+    </div>
+
+    <div class="btn-group-vertical">
+        <button class="btn btn-outline-dark tool-group" id="btnCurLocation" data-bs-toggle="tooltip" data-bs-placement="left" title="접속위치">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+        </button>
     </div>
 </div>
 
