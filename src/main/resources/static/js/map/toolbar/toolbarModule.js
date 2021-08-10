@@ -1,5 +1,3 @@
 import {} from "./zoomController.js";
-import {} from "./area.js";
+import {} from "./tools.js";
 import {} from "./curLocation.js";
-import {} from "./distance.js";
-import {} from "./radius.js";
