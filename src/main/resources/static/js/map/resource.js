@@ -75,26 +75,15 @@ const view = new ol.View({
 
 const measureVector = new ol.layer.Vector({
     source: new ol.source.Vector(),
-    style: new ol.style.Style({
-      fill: new ol.style.Fill({
-        color: 'rgba(255, 255, 255, 0.2)',
-      }),
-      stroke: new ol.style.Stroke({
-        color: '#ffcc33',
-        width: 2,
-      }),
-      image: new ol.style.Circle({
-        radius: 7,
-        fill: new ol.style.Fill({
-          color: '#ffcc33',
-        }),
-      }),
-    }),
-  });  
+});
+
+const geolocationVector = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+});
 
 const map = new ol.Map({
     target: 'map',
-    layers: [baseMapLayer, measureVector],
+    layers: [baseMapLayer, measureVector, geolocationVector],
     view: view,
     controls: [],
 });
@@ -117,5 +106,6 @@ export {
     kakaoNormal,
     kakaoSatellite,
     naverNormal,
-    naverSatellite
+    naverSatellite,
+    geolocationVector
 }
