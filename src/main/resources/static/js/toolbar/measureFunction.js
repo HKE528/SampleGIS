@@ -9,7 +9,7 @@ function createContent(targetFeatures, targetOverlay, type, content) {
     } else if (type == 'Circle') {
         text = "반경: " + content;
     }
-    
+
     let contentDiv = document.createElement('div');
     contentDiv.className = 'ol-tooltip ol-tooltip-static text-center';
 
@@ -90,9 +90,10 @@ function formatRadius(circle) {
 }
 
 function formatLength(line) {
-    const length = ol.sphere.getLength(line);
+    // const length = ol.sphere.getLength(line);
+    const length = line.getLength(line);
+    
     let output;
-
     if (length > 100) {
         output = Math.round((length / 1000) * 100) / 100 + ' ' + 'km';
     } else {
@@ -103,9 +104,10 @@ function formatLength(line) {
 }
 
 function formatArea(polygon) {
-    const area = ol.sphere.getArea(polygon);
-    let output;
+    // const area = ol.sphere.getArea(polygon);
+    const area = polygon.getArea(polygon);
 
+    let output;
     if (area > 10000) {
         output = Math.round((area / 1000000) * 100) / 100 + ' ' + 'km<sup>2</sup>';
     } else {
