@@ -73,9 +73,28 @@ const view = new ol.View({
     zoom: 6
 });
 
+const measureVector = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+    style: new ol.style.Style({
+      fill: new ol.style.Fill({
+        color: 'rgba(255, 255, 255, 0.2)',
+      }),
+      stroke: new ol.style.Stroke({
+        color: '#ffcc33',
+        width: 2,
+      }),
+      image: new ol.style.Circle({
+        radius: 7,
+        fill: new ol.style.Fill({
+          color: '#ffcc33',
+        }),
+      }),
+    }),
+  });  
+
 const map = new ol.Map({
     target: 'map',
-    layers: [baseMapLayer],
+    layers: [baseMapLayer, measureVector],
     view: view,
     controls: [],
 });
@@ -92,6 +111,7 @@ function defineEPSG() {
 export {
     map, view,
     baseMapLayer,
+    measureVector,
     vworldNormal,
     vworldSatellite,
     kakaoNormal,

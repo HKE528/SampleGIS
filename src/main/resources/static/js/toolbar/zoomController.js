@@ -1,4 +1,4 @@
-import { view } from "../resource.js"
+import { view } from "../map/resource.js"
 
 const btnZoomIn = document.getElementById("btnZoomIn");
 const btnZoomOut = document.getElementById("btnZoomOut");
