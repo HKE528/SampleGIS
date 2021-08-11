@@ -1,5 +1,5 @@
 import { map, measureVector } from "../map/resource.js"
-import { createContent, createHelpTooltip, createMeasureOverlay, createMeasureTooltip, formatArea, formatLength, formatRadius, generateDraw } from "./measureFunction.js"
+import { createContent, createHelpTooltip, createMeasureOverlay, createMeasureTooltip, formatArea, formatLength, generateDraw } from "./measureFunction.js"
 
 const distanceBtn = document.getElementById("distanceBtn");
 const extentBtn = document.getElementById("extentBtn");
@@ -103,7 +103,8 @@ function addInteraction(type) {
                 output = formatLength(geom);
                 tooltipCoord = geom.getLastCoordinate();
             } else if (geom instanceof ol.geom.Circle) {
-                tooltipCoord = mousePosition;
+                // tooltipCoord = mousePosition;
+                tooltipCoord = geom.getLastCoordinate();
 
                 let center = geom.getCenter();
 

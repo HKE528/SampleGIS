@@ -131,7 +131,6 @@ export {
     createMeasureOverlay,
     createHelpTooltip,
     createMeasureTooltip,
-    formatRadius,
     formatArea,
     formatLength,
     generateDraw,
