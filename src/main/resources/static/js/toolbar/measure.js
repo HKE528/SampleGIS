@@ -27,7 +27,7 @@ let measureTooltip = createMeasureTooltip();
 map.addOverlay(helpTooltip);
 map.addOverlay(measureTooltip);
 
-function clickHendler(evt) {
+function clickHendler() {
     endMeasure();
 
     btnChanger(this);
@@ -90,7 +90,7 @@ function addInteraction(type) {
     draw.on('drawstart', function (evt) {
         sketch = evt.feature;
 
-        let tooltipCoord = evt.coordinate;
+        let tooltipCoord;
 
         listener = sketch.getGeometry().on('change', function (evt) {
             const geom = evt.target;
@@ -103,8 +103,15 @@ function addInteraction(type) {
                 output = formatLength(geom);
                 tooltipCoord = geom.getLastCoordinate();
             } else if (geom instanceof ol.geom.Circle) {
-                output = formatRadius(geom);
                 tooltipCoord = mousePosition;
+
+                let center = geom.getCenter();
+
+                let radiusLine = new ol.Feature({
+                    geometry: new ol.geom.LineString([center, tooltipCoord])
+                });
+ 
+                output = formatLength(radiusLine.getGeometry());
             }
 
             measureTooltip.getElement().innerHTML = output;

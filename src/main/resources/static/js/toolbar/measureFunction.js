@@ -74,24 +74,8 @@ function createHelpTooltip() {
     return helpTooltip;
 }
 
-function formatRadius(circle) {
-    // const length = ol.sphere.getRadius()(circle);
-    const length = circle.getRadius();
-
-    let output;
-
-    if (length > 100) {
-        output = Math.round((length / 1000) * 100) / 100 + ' ' + 'km';
-    } else {
-        output = Math.round(length * 100) / 100 + ' ' + 'm';
-    }
-
-    return output;
-}
-
 function formatLength(line) {
-    // const length = ol.sphere.getLength(line);
-    const length = line.getLength(line);
+    const length = ol.sphere.getLength(line);
     
     let output;
     if (length > 100) {
@@ -104,8 +88,8 @@ function formatLength(line) {
 }
 
 function formatArea(polygon) {
-    // const area = ol.sphere.getArea(polygon);
-    const area = polygon.getArea(polygon);
+    const area = ol.sphere.getArea(polygon);
+    // const area = polygon.getArea(polygon);
 
     let output;
     if (area > 10000) {
