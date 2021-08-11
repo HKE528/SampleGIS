@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#geolocationFailModal">
-    Launch demo modal
-</button>
-
 <div class="modal fade" id="geolocationFailModal" tabindex="-1" aria-hidden="true" th:fragment="locationNotFoundModal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -14,6 +10,17 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" th:fragment="toastPopup">
+    <div id="liveToast" class="toast hide align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toastContent">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
 </div>
