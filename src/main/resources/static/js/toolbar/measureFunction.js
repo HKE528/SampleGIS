@@ -9,8 +9,9 @@ function createContent(targetFeatures, targetOverlay, type, content) {
     } else if (type == 'Circle') {
         text = "반경: ";
     }
-    text += "<b>" + content + "</b>";
-
+    // text += "<b>" + content + "</b>";
+    text += content;
+    
     let contentDiv = document.createElement('div');
     contentDiv.className = 'ol-tooltip ol-tooltip-static text-center';
 
@@ -79,10 +80,13 @@ function formatLength(line) {
     const length = ol.sphere.getLength(line);
     
     let output;
-    if (length > 100) {
-        output = Math.round((length / 1000) * 100) / 100 + ' ' + 'km';
+    
+    if (length > 1000) {
+        let num = Math.round((length / 1000) * 100) / 100;
+        output = "<b>" + num.toLocaleString() + "</b> km";
     } else {
-        output = Math.round(length * 100) / 100 + ' ' + 'm';
+        let num = Math.round(length * 100) / 100;
+        output = "<b>" + num.toLocaleString() + "</b> m";
     }
 
     return output;
@@ -93,10 +97,12 @@ function formatArea(polygon) {
     // const area = polygon.getArea(polygon);
 
     let output;
-    if (area > 10000) {
-        output = Math.round((area / 1000000) * 100) / 100 + ' ' + 'km<sup>2</sup>';
+    if (area > 1000000) {
+        let num = Math.round((area / 1000000) * 100) / 100;
+        output = "<b>" + num.toLocaleString() + "</b> km<sup>2</sup>";
     } else {
-        output = Math.round(area * 100) / 100 + ' ' + 'm<sup>2</sup>';
+        let num = Math.round(area * 100) / 100;
+        output = "<b>" + num.toLocaleString() + "</b> m<sup>2</sup>";
     }
 
     return output;
