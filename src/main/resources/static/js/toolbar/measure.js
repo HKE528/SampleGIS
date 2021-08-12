@@ -1,5 +1,6 @@
 import { map, measureVector } from "../map/resource.js"
 import { createContent, createHelpTooltip, createMeasureOverlay, createMeasureTooltip, formatArea, formatLength, generateDraw } from "./measureFunction.js"
+import {allBtnUnactive, btnChanger} from "../common/commonBtnFunction.js"
 
 const distanceBtn = document.getElementById("distanceBtn");
 const extentBtn = document.getElementById("extentBtn");
@@ -30,7 +31,7 @@ map.addOverlay(measureTooltip);
 function clickHendler() {
     endMeasure();
 
-    btnChanger(this);
+    btnChanger(btnList, this);
 
     if (this.classList.contains("active")) {
         measureStart(this);
@@ -150,25 +151,11 @@ function addInteraction(type) {
         ol.Observable.unByKey(listener);
 
         endMeasure();
-        allBtnUnactive();
 
+        allBtnUnactive(btnList);
 
         window.removeEventListener("keydown", undoKeydownListener);
     });
-}
-
-function allBtnUnactive() {
-    btnList.forEach(it => {
-        it.classList.remove("active");
-    });
-}
-
-function btnChanger(curBtn) {
-    btnList.forEach(it => {
-        if (it != curBtn) it.classList.remove("active");
-    });
-
-    curBtn.classList.toggle("active")
 }
 
 function endMeasure() {
