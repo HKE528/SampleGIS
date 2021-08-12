@@ -108,12 +108,7 @@ function addInteraction(type) {
                 let line = circleLineDraw.getOverlay().getSource().getFeatures();
 
                 tooltipCoord = line[0].getGeometry().getLastCoordinate();
-
-                let radiusLine = new ol.Feature({
-                    geometry: new ol.geom.LineString([start ,tooltipCoord])
-                });
- 
-                output = formatLength(radiusLine.getGeometry());
+                output = formatLength(line[0].getGeometry());
             }
 
             measureTooltip.getElement().innerHTML = output;
