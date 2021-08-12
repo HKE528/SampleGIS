@@ -69,7 +69,7 @@ const baseMapLayer = new ol.layer.Tile({ source: vworldNormal });
 const view = new ol.View({
     center: ol.proj.fromLonLat([125.1, 35.5]),
     minZoom: 6,
-    maxZoom: 19,
+    maxZoom: 22,
     zoom: 6
 });
 

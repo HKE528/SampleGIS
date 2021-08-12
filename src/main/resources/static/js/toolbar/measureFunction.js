@@ -3,12 +3,13 @@ import { map, measureVector } from "../map/resource.js";
 function createContent(targetFeatures, targetOverlay, type, content) {
     let text;
     if (type == 'Polygon') {
-        text = "총 면적: " + content;
+        text = "총 면적: ";
     } else if (type == 'LineString') {
-        text = "총 길이: " + content;
+        text = "총 길이: ";
     } else if (type == 'Circle') {
-        text = "반경: " + content;
+        text = "반경: ";
     }
+    text += "<b>" + content + "</b>";
 
     let contentDiv = document.createElement('div');
     contentDiv.className = 'ol-tooltip ol-tooltip-static text-center';
@@ -107,20 +108,21 @@ function generateDraw(type) {
         type: type,
         style: new ol.style.Style({
             fill: new ol.style.Fill({
-                color: 'rgba(255, 255, 255, 0.2)',
+                color: 'rgba(200, 0, 0, 0.2)',
             }),
             stroke: new ol.style.Stroke({
-                color: 'rgba(0, 0, 0, 0.5)',
+                color: 'rgba(200, 0, 0, 0.7)',
                 lineDash: [10, 10],
                 width: 2,
             }),
             image: new ol.style.Circle({
-                radius: 5,
+                radius: 4,
                 stroke: new ol.style.Stroke({
-                    color: 'rgba(0, 0, 0, 0.7)',
+                    color: 'rgba(200, 0, 0, 0.8)',
+                    width: 3
                 }),
                 fill: new ol.style.Fill({
-                    color: 'rgba(255, 255, 255, 0.2)',
+                    color: 'rgba(255, 255, 255, 0.5)',
                 }),
             }),
         }),
