@@ -42,7 +42,7 @@ function measureStart(btn) {
 
     let type;
 
-    if(btn == distanceBtn) {
+    if (btn == distanceBtn) {
         type = "LineString";
     } else if (btn == extentBtn) {
         type = "Polygon";
@@ -66,7 +66,7 @@ function pointerMoveHandler(evt) {
         if (geom instanceof ol.geom.Circle) {
             helpMsg = '클릭하여 종료';
         } else {
-            helpMsg = '더블클릭하여 종료';
+            helpMsg = '더블클릭하여 종료 <br>Backspace: 되돌리기';
         }
     }
 
@@ -78,7 +78,7 @@ function pointerMoveHandler(evt) {
 
 function addInteraction(type) {
     // let radiusLine;
-    if(type == "Circle"){
+    if (type == "Circle") {
         circleLineDraw = generateDraw("LineString");
         map.addInteraction(circleLineDraw);
     }
@@ -88,15 +88,19 @@ function addInteraction(type) {
     map.addInteraction(snap);
 
     let listener;
+    let keyListener;
     draw.on('drawstart', function (evt) {
         sketch = evt.feature;
 
-        let tooltipCoord;
+        // let tooltipCoord;
+
+        window.addEventListener("keydown", undoKeydownListener);
 
         listener = sketch.getGeometry().on('change', function (evt) {
             const geom = evt.target;
-
+            let tooltipCoord;
             let output;
+
             if (geom instanceof ol.geom.Polygon) {
                 output = formatArea(geom);
                 tooltipCoord = geom.getInteriorPoint().getCoordinates();
@@ -147,6 +151,9 @@ function addInteraction(type) {
 
         endMeasure();
         allBtnUnactive();
+
+
+        window.removeEventListener("keydown", undoKeydownListener);
     });
 }
 
@@ -177,4 +184,24 @@ function endMeasure() {
     circleLineDraw = null;
 
     map.un('pointermove', pointerMoveHandler);
+}
+
+function undoKeydownListener(evt) {
+    if (evt.code == "Backspace") {
+        evt.preventDefault();
+
+        let line = draw.getOverlay().getSource().getFeatures()[0].getGeometry();
+
+        if (line.getType() == "LineString") {
+            if (line.getCoordinates().length > 2) {
+                draw.removeLastPoint();
+            }
+        } else {
+            if (line.getCoordinates()[0].length > 3) {
+                draw.removeLastPoint();
+            }
+        }
+
+        return false;
+    }
 }
