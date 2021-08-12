@@ -12,7 +12,14 @@ function btnChanger(btnList, curBtn) {
     curBtn.classList.toggle("active")
 }
 
+function setBtnsEventHandeler(list, handler) {
+    list.forEach(it => {
+        it.addEventListener("click", handler);
+    })
+}
+
 export {
     allBtnUnactive,
-    btnChanger
+    btnChanger,
+    setBtnsEventHandeler
 }
