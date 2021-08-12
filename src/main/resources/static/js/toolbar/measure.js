@@ -1,22 +1,18 @@
-import { map, measureVector } from "../map/resource.js"
-import { createContent, createHelpTooltip, createMeasureOverlay, createMeasureTooltip, formatArea, formatLength, generateDraw } from "./measureFunction.js"
-import {allBtnUnactive, btnChanger} from "../common/commonBtnFunction.js"
+import { map, measureVector } from "../map/resource.js";
+import { createContent, createHelpTooltip, createMeasureOverlay, createMeasureTooltip, formatArea, formatLength, generateDraw } from "./measureFunction.js";
+import {allBtnUnactive, btnChanger, setBtnsEventHandeler} from "../common/commonBtnFunction.js";
+import {createEl} from "../common/utility.js";
 
-const distanceBtn = document.getElementById("distanceBtn");
-const extentBtn = document.getElementById("extentBtn");
-const radiusBtn = document.getElementById("radiusBtn");
-
-distanceBtn.addEventListener("click", clickHendler);
-extentBtn.addEventListener("click", clickHendler);
-radiusBtn.addEventListener("click", clickHendler);
+const distanceBtn = createEl("distanceBtn");
+const extentBtn = createEl("extentBtn");
+const radiusBtn = createEl("radiusBtn");
 
 const btnList = [distanceBtn, extentBtn, radiusBtn];
+setBtnsEventHandeler(btnList, clickHendler)
+
 const snap = new ol.interaction.Snap({
     source: measureVector.getSource(),
 });
-
-
-let mousePosition;
 
 let sketch;
 
@@ -73,8 +69,6 @@ function pointerMoveHandler(evt) {
 
     helpTooltip.getElement().innerHTML = helpMsg;
     helpTooltip.setPosition(evt.coordinate);
-
-    mousePosition = evt.coordinate;
 }
 
 function addInteraction(type) {
@@ -89,7 +83,6 @@ function addInteraction(type) {
     map.addInteraction(snap);
 
     let listener;
-    let keyListener;
     draw.on('drawstart', function (evt) {
         sketch = evt.feature;
 

@@ -1,11 +1,11 @@
-import { view, geolocationVector } from "../map/resource.js"
+import { view, geolocationVector } from "../map/resource.js";
+import {createEl} from "../common/utility.js";
 
-const geolocationBtn = document.getElementById('btnCurLocation');
-const myModal = new bootstrap.Modal(document.getElementById('geolocationFailModal'));
+const geolocationBtn = createEl('btnCurLocation');
+const myModal = new bootstrap.Modal(createEl('geolocationFailModal'));
 
-const toastContent = document.getElementById('toastContent');
-const toastElem = document.getElementById('liveToast');
-const toast = new bootstrap.Toast(toastElem);
+const toastContent = createEl('toastContent');
+const toast = new bootstrap.Toast(createEl('liveToast'));
 
 const geolocation = new ol.Geolocation({
     // enableHighAccuracy must be set to true to have the heading value.

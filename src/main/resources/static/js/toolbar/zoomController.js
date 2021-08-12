@@ -1,7 +1,8 @@
-import { view } from "../map/resource.js"
+import { view } from "../map/resource.js";
+import {createEl} from "../common/utility.js";
 
-const btnZoomIn = document.getElementById("btnZoomIn");
-const btnZoomOut = document.getElementById("btnZoomOut");
+const btnZoomIn = createEl("btnZoomIn");
+const btnZoomOut = createEl("btnZoomOut");
 
 btnZoomIn.addEventListener("click", zoomin);
 btnZoomOut.addEventListener("click", zoomout);

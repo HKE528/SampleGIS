@@ -1,3 +1,5 @@
+import {setBtnsEventHandeler} from "../common/commonBtnFunction.js";
+import {createEl} from "../common/utility.js" ;
 import {
     baseMapLayer,
     vworldNormal,
@@ -8,19 +10,15 @@ import {
     naverSatellite
 } from "./resource.js";
 
-const vworldNormalRadio = document.getElementById('vworldNormal');
-const vworldSatelliteRadio = document.getElementById('vworldSatellite');
-const KakaoNormalRadio = document.getElementById('KakaoNormal');
-const kakaoSatelliteRadio = document.getElementById('kakaoSatellite');
-const naverNormalRadio = document.getElementById('naverNormal');
-const naverSatelliteRadio = document.getElementById('naverSatellite');
+const vworldNormalRadio = createEl('vworldNormal');
+const vworldSatelliteRadio = createEl('vworldSatellite');
+const KakaoNormalRadio = createEl('KakaoNormal');
+const kakaoSatelliteRadio = createEl('kakaoSatellite');
+const naverNormalRadio = createEl('naverNormal');
+const naverSatelliteRadio = createEl('naverSatellite');
 
-vworldNormalRadio.addEventListener("click", changeMap);
-vworldSatelliteRadio.addEventListener("click", changeMap);
-KakaoNormalRadio.addEventListener("click", changeMap);
-kakaoSatelliteRadio.addEventListener("click", changeMap);
-naverNormalRadio.addEventListener("click", changeMap);
-naverSatelliteRadio.addEventListener("click", changeMap);
+const mapBtnList = [vworldNormalRadio, vworldSatelliteRadio, KakaoNormalRadio, kakaoSatelliteRadio, naverNormalRadio, naverSatelliteRadio];
+setBtnsEventHandeler(mapBtnList, changeMap);
 
 function changeMap() {
     let type = this.value;
