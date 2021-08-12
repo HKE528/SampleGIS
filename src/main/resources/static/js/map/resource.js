@@ -96,6 +96,10 @@ const geolocationVector = new ol.layer.Vector({
     source: new ol.source.Vector(),
 });
 
+const drawVector = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+});
+
 const map = new ol.Map({
     target: 'map',
     layers: [baseMapLayer, measureVector, geolocationVector],
@@ -122,5 +126,6 @@ export {
     kakaoSatellite,
     naverNormal,
     naverSatellite,
-    geolocationVector
+    geolocationVector,
+    drawVector
 }
