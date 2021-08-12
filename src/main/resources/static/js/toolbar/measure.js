@@ -77,6 +77,7 @@ function pointerMoveHandler(evt) {
 }
 
 function addInteraction(type) {
+    // let radiusLine;
     if(type == "Circle"){
         circleLineDraw = generateDraw("LineString");
         map.addInteraction(circleLineDraw);
@@ -103,13 +104,13 @@ function addInteraction(type) {
                 output = formatLength(geom);
                 tooltipCoord = geom.getLastCoordinate();
             } else if (geom instanceof ol.geom.Circle) {
-                // tooltipCoord = mousePosition;
-                tooltipCoord = geom.getLastCoordinate();
+                let start = geom.getCenter();
+                let line = circleLineDraw.getOverlay().getSource().getFeatures();
 
-                let center = geom.getCenter();
+                tooltipCoord = line[0].getGeometry().getLastCoordinate();
 
                 let radiusLine = new ol.Feature({
-                    geometry: new ol.geom.LineString([center, tooltipCoord])
+                    geometry: new ol.geom.LineString([start ,tooltipCoord])
                 });
  
                 output = formatLength(radiusLine.getGeometry());
