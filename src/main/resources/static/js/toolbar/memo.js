@@ -1,5 +1,5 @@
-import {createEl} from "../common/utility.js";
-import {map} from "../map/resource.js"
+import { createEl } from "../common/utility.js";
+import { map } from "../map/resource.js"
 
 const memoBtn = createEl("utilMemo");
 memoBtn.addEventListener("click", btnEvent);
@@ -19,6 +19,17 @@ function btnEvent(evt) {
 
 function memoStart() {
     map.on('pointermove', pointerMoveHandler);
+    map.on('click', memoClickEvent);
+}
+
+function memoClickEvent(evt) {
+    let memoOverlay = createMemoOverlay();
+    let position = memoCursorOverlay.getPosition();
+
+    memoOverlay.setPosition(position);
+    map.addOverlay(memoOverlay);
+
+    memoComplete();
 }
 
 function memoComplete() {
@@ -34,15 +45,58 @@ function pointerMoveHandler(evt) {
 
 function createCursor() {
     let cursorElement = document.createElement('div');
-    cursorElement.className = 'ol-tooltip ol-tooltip-measure';
+    cursorElement.className = 'ol-memo-cursor';
 
-    let cursorOverlay = new ol.Overlay({
+    return new ol.Overlay({
         element: cursorElement,
         offset: [0, -5],
         positioning: 'bottom-center',
         stopEvent: false,
         insertFirst: false,
     });
+}
 
-    return cursorOverlay;
+function createMemoOverlay() {
+    let memoElement = document.createElement('div');
+    memoElement.className = 'ol-memo';
+
+    let closeDiv = document.createElement('div');
+    closeDiv.className = "text-end";
+
+    let contentDiv = document.createElement('div');
+    contentDiv.className = "px-1";
+    
+    let closeBtn = document.createElement('button');
+    closeBtn.className = "btn-close btn-sm";
+
+    let contentTextarea = document.createElement('textarea');
+    contentTextarea.className = "ol-memo-textarea";
+    contentTextarea.rows = 3
+    contentTextarea.placeholder = "텍스트를 입력해주세요";
+
+    closeDiv.appendChild(closeBtn);
+    contentDiv.appendChild(contentTextarea);
+
+    memoElement.appendChild(closeDiv);
+    memoElement.appendChild(contentDiv);
+
+    let memoOverlay = new ol.Overlay({
+        element: memoElement,
+        offset: [0, -5],
+        positioning: 'bottom-center',
+        stopEvent: false,
+        insertFirst: false,
+    });
+
+    closeBtn.addEventListener("click", (evt) => {
+        map.removeOverlay(memoOverlay);
+    })
+
+    contentTextarea.addEventListener("focus", (evt) => {
+        // evt.preventDefault();
+        // evt.stopImmediatePropagation();
+        evt.stopPropagation();
+    })
+
+    return memoOverlay;
 }
