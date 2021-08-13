@@ -68,26 +68,6 @@ function createDraw(type) {
     return new ol.interaction.Draw({
         source: drawVector.getSource(),
         type: type,
-        // style: new ol.style.Style({
-        //     fill: new ol.style.Fill({
-        //         color: 'rgba(200, 0, 0, 0.2)',
-        //     }),
-        //     stroke: new ol.style.Stroke({
-        //         color: 'rgba(200, 0, 0, 0.7)',
-        //         lineDash: [10, 10],
-        //         width: 2,
-        //     }),
-        //     image: new ol.style.Circle({
-        //         radius: 4,
-        //         stroke: new ol.style.Stroke({
-        //             color: 'rgba(200, 0, 0, 0.8)',
-        //             width: 3
-        //         }),
-        //         fill: new ol.style.Fill({
-        //             color: 'rgba(255, 255, 255, 0.5)',
-        //         }),
-        //     }),
-        // }),
     });
 }
 
@@ -96,25 +76,5 @@ function createFreeHandDraw(type) {
         source: drawVector.getSource(),
         type: type,
         freehand: true,
-        // style: new ol.style.Style({
-        //     fill: new ol.style.Fill({
-        //         color: 'rgba(200, 0, 0, 0.2)',
-        //     }),
-        //     stroke: new ol.style.Stroke({
-        //         color: 'rgba(200, 0, 0, 0.7)',
-        //         lineDash: [10, 10],
-        //         width: 2,
-        //     }),
-        //     image: new ol.style.Circle({
-        //         radius: 4,
-        //         stroke: new ol.style.Stroke({
-        //             color: 'rgba(200, 0, 0, 0.8)',
-        //             width: 3
-        //         }),
-        //         fill: new ol.style.Fill({
-        //             color: 'rgba(255, 255, 255, 0.5)',
-        //         }),
-        //     }),
-        // }),
     });
 }
