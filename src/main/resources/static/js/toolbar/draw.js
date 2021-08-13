@@ -6,16 +6,20 @@ const drawPoint = createEl("drawPoint");
 const drawLine = createEl("drawLine");
 const drawPolygon = createEl("drawPolygon");
 const drawFreehand = createEl("drawFreehand");
+const drawEraser = createEl("drawEraser");
 const drawClear = createEl("drawClear");
 
-const drawBtnList = [drawPoint, drawLine, drawPolygon, drawFreehand, drawClear];
+const drawBtnList = [drawPoint, drawLine, drawPolygon, drawFreehand, drawEraser, drawClear];
 setBtnsEventHandeler(drawBtnList, clickDraw);
 
 const pointDraw = createDraw("Point");
 const lineDraw = createDraw("LineString");
 const polygonDraw = createDraw("Polygon");
 const freehandDraw = createFreeHandDraw("LineString");
-const drawList = [pointDraw, lineDraw, polygonDraw, freehandDraw];
+const eraserDraw = createEraser();
+const drawList = [pointDraw, lineDraw, polygonDraw, freehandDraw, eraserDraw];
+
+eraseFeature();
 
 function clickDraw() {
     removeAllDrawInterction();
@@ -23,8 +27,32 @@ function clickDraw() {
 
     if (this.classList.contains("active") && this != drawClear) {
         drawStart(this);
-    } else if(this == drawClear) {
+    } else if (this == drawClear) {
         clearDraw();
+    }
+}
+
+function eraseFeature() {
+    eraserDraw.on('drawstart', function (evt) {
+        map.on('pointermove', findFeature);    
+    });
+
+    eraserDraw.on('drawend', function (evt) {
+        map.un('pointermove', findFeature);
+    });
+}
+
+function findFeature(evt){
+    let curPixel = evt.pixel;
+
+    if (map.hasFeatureAtPixel(curPixel)) {
+        let findFeatures = map.getFeaturesAtPixel(curPixel);
+
+        // console.log(findFeature);
+
+        findFeatures.forEach(it => {
+            drawVector.getSource().removeFeature(it);
+        });
     }
 }
 
@@ -46,6 +74,10 @@ function drawStart(btn) {
         case drawFreehand:
             draw = freehandDraw;
             break;
+
+        case drawEraser:
+            draw = eraserDraw;
+            break;
     }
 
     map.addInteraction(draw);
@@ -62,6 +94,14 @@ function removeAllDrawInterction() {
     drawList.forEach(it => {
         map.removeInteraction(it);
     })
+}
+
+function createEraser() {
+    return new ol.interaction.Draw({
+        type: 'LineString',
+        freehand: true,
+        style: new ol.style.Style(),
+    });
 }
 
 function createDraw(type) {
