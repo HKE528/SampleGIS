@@ -98,6 +98,21 @@ const geolocationVector = new ol.layer.Vector({
 
 const drawVector = new ol.layer.Vector({
     source: new ol.source.Vector(),
+    style: new ol.style.Style({
+        fill: new ol.style.Fill({
+            color: 'rgba(34, 116, 28, 0.2)',
+        }),
+        stroke: new ol.style.Stroke({
+            color: '#2F9D27',
+            width: 2,
+        }),
+        image: new ol.style.Circle({
+            radius: 5,
+            fill: new ol.style.Fill({
+                color: '#2F9D27',
+            }),
+        }),
+    }),
 });
 
 const map = new ol.Map({
