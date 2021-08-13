@@ -104,7 +104,7 @@ const drawVector = new ol.layer.Vector({
         }),
         stroke: new ol.style.Stroke({
             color: '#2F9D27',
-            width: 2,
+            width: 3,
         }),
         image: new ol.style.Circle({
             radius: 5,
