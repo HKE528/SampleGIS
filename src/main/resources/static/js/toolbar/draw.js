@@ -23,7 +23,7 @@ function clickDraw() {
 
     if (this.classList.contains("active") && this != drawClear) {
         drawStart(this);
-    } else {
+    } else if(this == drawClear) {
         clearDraw();
     }
 }
