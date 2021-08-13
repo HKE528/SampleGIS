@@ -92,11 +92,5 @@ function createMemoOverlay() {
         map.removeOverlay(memoOverlay);
     })
 
-    contentTextarea.addEventListener("focus", (evt) => {
-        // evt.preventDefault();
-        // evt.stopImmediatePropagation();
-        evt.stopPropagation();
-    })
-
     return memoOverlay;
 }
