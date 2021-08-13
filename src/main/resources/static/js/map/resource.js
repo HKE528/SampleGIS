@@ -102,7 +102,7 @@ const drawVector = new ol.layer.Vector({
 
 const map = new ol.Map({
     target: 'map',
-    layers: [baseMapLayer, measureVector, geolocationVector],
+    layers: [baseMapLayer, measureVector, geolocationVector, drawVector],
     view: view,
     controls: [],
 });
