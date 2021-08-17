@@ -8,9 +8,7 @@ const drawPolygon = createEl("drawPolygon");
 const drawFreehand = createEl("drawFreehand");
 const drawEraser = createEl("drawEraser");
 const drawClear = createEl("drawClear");
-
 const drawBtnList = [drawPoint, drawLine, drawPolygon, drawFreehand, drawEraser, drawClear];
-setBtnsEventHandeler(drawBtnList, clickDraw);
 
 const pointDraw = createDraw("Point");
 const lineDraw = createDraw("LineString");
@@ -18,6 +16,8 @@ const polygonDraw = createDraw("Polygon");
 const freehandDraw = createFreeHandDraw("LineString");
 const eraserDraw = createEraser();
 const drawList = [pointDraw, lineDraw, polygonDraw, freehandDraw, eraserDraw];
+
+setBtnsEventHandeler(drawBtnList, clickDraw);
 
 eraseFeature();
 
@@ -34,15 +34,20 @@ function clickDraw() {
 
 function eraseFeature() {
     eraserDraw.on('drawstart', function (evt) {
-        map.on('pointermove', findFeature);    
+        map.on('pointermove', findAndEraseFeature);
     });
 
+    eraserDraw.on('drawabort', function (evt) {
+        map.un('pointermove', findAndEraseFeature);
+    });
+
+
     eraserDraw.on('drawend', function (evt) {
-        map.un('pointermove', findFeature);
+        map.un('pointermove', findAndEraseFeature);
     });
 }
 
-function findFeature(evt){
+function findAndEraseFeature(evt) {
     let curPixel = evt.pixel;
 
     if (map.hasFeatureAtPixel(curPixel)) {
@@ -51,7 +56,11 @@ function findFeature(evt){
         // console.log(findFeature);
 
         findFeatures.forEach(it => {
-            drawVector.getSource().removeFeature(it);
+            try {
+                drawVector.getSource().removeFeature(it);
+            } catch (error) {
+                
+            }
         });
     }
 }
